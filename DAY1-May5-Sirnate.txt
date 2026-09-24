@@ -189,10 +189,10 @@ config t
 ip routing
 ip dhcp pool CAMERA6
 host 10.61.50.6 255.255.255.0
-client-identifier abcd.1234.cafb
+client-identifier 001a.0709.c644
 ip dhcp pool CAMERA8
 host 10.61.50.8 255.255.255.0
-client-identifier abcd.1234.cafb
+client-identifier 001a.0706.c2c5
 end
 show ip dhcp binding
 
@@ -267,12 +267,12 @@ ephone-dn 8
 ephone-dn 10
  number 6198
 Ephone 1
-  Mac-address cafe.face.baba
+  Mac-address ccd8.c1fb.04e9
   type 8945
   button 1:8 2:7 3:6 4:5
   restart
 Ephone 2
-  Mac-address fafa.caca.baba
+  Mac-address ccd8.c1fb.0f11
   type 8945
   button 1:4 2:3 3:2 4:1
   restart  
@@ -281,7 +281,7 @@ end
 @@@Enabling Video Calls
 configure terminal
 ephone 1
-   video
+   video 
    voice service voip
    h323
    call start slow
@@ -341,10 +341,10 @@ dial-peer voice 52 Voip
  destination-pattern 52..
  session target ipv4:10.52.100.8
  codec g711ULAW
-dial-peer voice 61 Voip
- destination-pattern 61..
- session target ipv4:10.61.100.8
- codec g711ULAW
+!dial-peer voice 61 Voip
+!destination-pattern 61..
+!session target ipv4:10.61.100.8
+codec g711ULAW
 dial-peer voice 62 Voip
  destination-pattern 62..
  session target ipv4:10.62.100.8
@@ -363,6 +363,14 @@ dial-peer voice 81 Voip
  codec g711ULAW
 dial-peer voice 82 Voip
  destination-pattern 82..
+ session target ipv4:10.82.100.8
+ codec g711ULAW
+dial-peer voice 91 Voip
+ destination-pattern 91..
+ session target ipv4:10.82.100.8
+ codec g711ULAW
+dial-peer voice 92 Voip
+ destination-pattern 92..
  session target ipv4:10.82.100.8
  codec g711ULAW
 
@@ -660,3 +668,17 @@ exit
           
 sip-ua
 sip-server ipv4:192.168.k.1
+
+
+
+@@side note
+show commands:
+
+show run 
+show ip int brief
+show mac address-table
+show vlan brief
+show power inline
+show ip route ospf 
+
+conf t
